@@ -10,6 +10,8 @@ The best way to contribute is to [open an issue](https://github.com/OnCallAlert/
 - **Feature request**: an idea or improvement.
 - **Question / support**: help with installing, configuring or using OnCallAlert.
 
+For open-ended questions and ideas, use [Discussions](https://github.com/OnCallAlert/oncallalert/discussions).
+
 Before opening an issue, search the [existing issues](https://github.com/OnCallAlert/oncallalert/issues) to avoid duplicates.
 Remove secrets (API keys, tokens, phone numbers) from anything you paste.
 

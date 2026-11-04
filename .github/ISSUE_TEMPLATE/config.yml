@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Ask the community (Discussions)
+    url: https://github.com/OnCallAlert/oncallalert/discussions/categories/q-a
+    about: Open-ended questions, setup help and sharing how you use OnCallAlert.
+  - name: Share an idea
+    url: https://github.com/OnCallAlert/oncallalert/discussions/categories/ideas
+    about: Early ideas to discuss before they become a feature request.
   - name: Documentation
     url: https://oncallalert.dev/docs.html
     about: Install, configuration and usage guides.

@@ -156,8 +156,8 @@ provider "oncallalert" {
 }
 ```
 
-- **OpenTofu:** the OpenTofu registry listing is in review. Until then use `source = "registry.terraform.io/OnCallAlert/oncallalert"`.
-- **Pulumi:** `pulumi package add terraform-provider registry.terraform.io/OnCallAlert/oncallalert`, then set `oncallalert:url` and `oncallalert:token` (as a secret).
+- **OpenTofu:** the same configuration works; the provider is also on the [OpenTofu registry](https://search.opentofu.org/provider/oncallalert/oncallalert).
+- **Pulumi:** `pulumi package add terraform-provider OnCallAlert/oncallalert`, then set `oncallalert:url` and `oncallalert:token` (as a secret).
 - Existing objects can be brought under code with `terraform import`. Resource list and examples: [provider docs](https://registry.terraform.io/providers/OnCallAlert/oncallalert/latest/docs).
 
 ## Moving from PagerDuty, Opsgenie or Jira Service Management

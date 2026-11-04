@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://oncallalert.dev/docs.html
+    about: Install, configuration and usage guides.
+  - name: Report a security vulnerability
+    url: https://github.com/OnCallAlert/oncallalert/security/advisories/new
+    about: Please report security issues privately, not as a public issue.
+  - name: Billing and license keys
+    url: mailto:contact@oncallalert.dev
+    about: Questions about plans, payments or license keys.

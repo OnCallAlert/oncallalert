@@ -1,0 +1,20 @@
+name: Question / support
+description: Ask for help with installing, configuring or using OnCallAlert.
+title: "[Question]: "
+labels: ["question", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Please check the [docs](https://oncallalert.dev/docs.html) first.
+  - type: input
+    id: server-version
+    attributes:
+      label: Server version
+      placeholder: e.g. v1.0.0
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What are you trying to do, and what have you tried?
+    validations:
+      required: true

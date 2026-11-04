@@ -131,6 +131,35 @@ curl -X POST https://oncall.yourcompany.com/api/v2/generic/incoming \
 
 `dedup` is optional and groups repeat alerts.
 
+## Infrastructure as code (Terraform, OpenTofu, Pulumi)
+
+Manage escalation policies, rotations, schedules, overrides, services and integration keys as code with the
+[OnCallAlert provider](https://registry.terraform.io/providers/OnCallAlert/oncallalert/latest)
+([source](https://github.com/OnCallAlert/terraform-provider-oncallalert)). It talks only to your own server and is included with every license.
+
+1. You need a server newer than v1.0.0 with an active license.
+2. As an admin, open your profile → **API Tokens** → **Create token**, scope **Admin**. Copy the token; it is shown once.
+3. Configure the provider:
+
+```hcl
+terraform {
+  required_providers {
+    oncallalert = {
+      source = "OnCallAlert/oncallalert"
+    }
+  }
+}
+
+provider "oncallalert" {
+  url   = "https://oncall.yourcompany.com" # or ONCALLALERT_URL
+  token = var.oncallalert_token            # or ONCALLALERT_TOKEN
+}
+```
+
+- **OpenTofu:** the OpenTofu registry listing is in review. Until then use `source = "registry.terraform.io/OnCallAlert/oncallalert"`.
+- **Pulumi:** `pulumi package add terraform-provider registry.terraform.io/OnCallAlert/oncallalert`, then set `oncallalert:url` and `oncallalert:token` (as a secret).
+- Existing objects can be brought under code with `terraform import`. Resource list and examples: [provider docs](https://registry.terraform.io/providers/OnCallAlert/oncallalert/latest/docs).
+
 ## Moving from PagerDuty, Opsgenie or Jira Service Management
 
 Open **Admin → Import** (`/admin/import`) as an admin. Enter a read-only API key from your old tool, check the preview, and import.

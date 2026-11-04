@@ -161,6 +161,28 @@ provider "oncallalert" {
 - Existing objects can be brought under code with `terraform import`. Resource list and examples: [provider docs](https://registry.terraform.io/providers/OnCallAlert/oncallalert/latest/docs).
 - Step-by-step guide: https://oncallalert.dev/docs.html#iac
 
+## AI assistants (MCP)
+
+Let an AI client such as Claude or Cursor list and acknowledge alerts, see who is on call and read schedules, with the
+[OnCallAlert MCP server](https://github.com/OnCallAlert/oncallalert-mcp). It is a small program that runs on your own machine and talks only to your own server.
+Nothing is hosted by us, and it is included with every license.
+
+1. You need a server newer than v1.0.0.
+2. Open your profile → **API Tokens** → **Create token**. Scope **Read** is read-only. Scope **Write** also lets the AI acknowledge, resolve and escalate alerts, create alerts and create overrides. Admins create Write tokens directly; other users request one and an admin approves it on **Admin → API Keys**.
+3. Download `oncallalert-mcp` for Linux, macOS or Windows from [GitHub Releases](https://github.com/OnCallAlert/oncallalert-mcp/releases), and put it on your `PATH`.
+4. Connect it, for example in Claude Code:
+
+```sh
+claude mcp add oncallalert \
+  --env ONCALLALERT_URL=https://oncall.yourcompany.com \
+  --env ONCALLALERT_TOKEN=your-token \
+  -- oncallalert-mcp
+```
+
+- **Read-only:** add `--read-only` after `oncallalert-mcp` to hide the tools that change data. The token never does more than its owner.
+- **Other clients:** Claude Desktop, Cursor and VS Code settings are in the [MCP server README](https://github.com/OnCallAlert/oncallalert-mcp#readme).
+- Step-by-step guide and tool list: https://oncallalert.dev/docs.html#mcp
+
 ## Moving from PagerDuty, Opsgenie or Jira Service Management
 
 Open **Admin → Import** (`/admin/import`) as an admin. Enter a read-only API key from your old tool, check the preview, and import.
